@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: mysql-container
+        image: datascientest/mysql-k8s:1.0.0
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: mysql-password
+        ports:
+        - containerPort: 3306
+      - name: fastapi-container
+        image: eliesaid/fastapi-image:latest
+        ports:
+        - containerPort: 8000

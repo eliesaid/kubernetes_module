@@ -1,0 +1,11 @@
+Pour  acceder à l'api, dans mon navigateur, j'ouvre http://IP_VM/docs
+
+Dans mon main.py : mysql_url = '127.0.0.1:3306' 
+
+mysql_password = "datascientest1234"
+
+Pour avoir le mot de base en base 64 : echo -n "datascientest1234" | base64 
+
+J'ai renseigné le secret renvoyé dans mon fichier secret:
+
+mysql-password: ZGF0YXNjaWVudGVzdDEyMzQ= # Base64 encoded password "datascientest1234"
